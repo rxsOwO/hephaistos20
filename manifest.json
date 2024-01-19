@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Hephaistos20",
+    "description": "Link Hephaistos and Roll20",
+    "version": "0.2.2",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["activeTab", "scripting", "tabs"],
+    "content_scripts": [{
+        "matches": [ "https://hephaistos.azurewebsites.net/*/*", "https://hephaistos.azurewebsites.net/*",  "https://hephaistos.online/*", "https://hephaistos.online/*/*"],
+        "js": [
+            "contentscript.js"
+        ]
+        },
+        {"matches": [ "https://app.roll20.net/editor/*" ],"js": ["roll20.js"]}
+    ],
+    "externally_connectable": {
+        "matches": ["https://hephaistos.azurewebsites.net/*/*", "https://hephaistos.azurewebsites.net/", "https://hephaistos.online/","https://hephaistos.online/*/*"]
+    }
+
+}
